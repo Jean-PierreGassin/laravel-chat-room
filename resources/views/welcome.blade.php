@@ -18,6 +18,7 @@
 
 			<form>
 			  <div class="row">
+				<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
 			    <div class="input-group">
 			        <textarea placeholder="Start chattin'..."></textarea>
 					<input type="submit" class="button" value="Send">
