@@ -10,6 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', 'MessageController@index');
-Route::post('/', 'MessageController@create');
+Route::get('/', function() {
+	return view('welcome');
+});
+Route::get('/messages', 'MessageController@index');
+Route::post('/messages', 'MessageController@create');

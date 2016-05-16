@@ -14,14 +14,19 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.sass(
 		'app.scss',
-		'public/css/app.css',
+		'public/css',
 		{
 			includePaths: [
-				'resources/assets/bower_components/foundation-sites/scss/',
-				'resources/assets/bower_components/motion-ui'
+				'resources/assets/bower_components/foundation-sites/scss',
 			]
 		}
 	);
 
 	mix.scripts('app.js');
+
+	mix.scripts(
+		['jquery/dist/jquery.js', 'foundation-sites/dist/foundation.js'],
+        'public/js/vendor.js',
+        'resources/assets/bower_components/'
+	);
 });

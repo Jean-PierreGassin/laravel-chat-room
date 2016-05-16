@@ -28,5 +28,6 @@
 		</div>
 	</div>
 </body>
-<script src="js/app.js"/>
+<script src="js/vendor.js"></script>
+<script src="js/app.js"></script>
 </html>

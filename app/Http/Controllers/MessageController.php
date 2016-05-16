@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Symfony\Component\HttpKernel\Response;
+use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Routing\Controller as BaseController;
 
 class MessageController extends BaseController
@@ -26,7 +26,10 @@ class MessageController extends BaseController
 		$chatFile = fopen($this->chatFilePath, "r");
 
 		while (($line = fgets($chatFile)) !== false) {
-			return (new Response(null, 404))->send();
+			return (new Response(json_encode([
+					'user' => 'user',
+					'message' => 'message'
+				]), 200))->send();
 		}
 
 		fclose($chatFile);
@@ -34,6 +37,6 @@ class MessageController extends BaseController
 
 	public function create() {
 		$chatFile = fopen($this->chatFilePath, "w+");
-
+		// return (new Response(null, 404))->send();
 	}
 }
