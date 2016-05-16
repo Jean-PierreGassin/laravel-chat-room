@@ -9,30 +9,16 @@ class MessageController extends BaseController
 {
 	protected $user;
 	protected $message;
-	protected $chatFile;
-	protected $chatFilePath;
 
 	public function __construct($user = 'Guest', $message = null) {
 		$this->user = $user;
 		$this->message = $message;
-		$this->chatFilePath = "logs/chat.txt";
-
-		if (!file_exists($this->chatFilePath)) {
-			$this->chatFile = fopen($this->chatFilePath, "w+");
-		}
 	}
 
 	public function index() {
-		$chatFile = fopen($this->chatFilePath, "r");
+		// fetch db logs of chats and return them
 
-		while (($line = fgets($chatFile)) !== false) {
-			return (new Response(json_encode([
-					'user' => 'user',
-					'message' => 'message'
-				]), 200))->send();
-		}
-
-		fclose($chatFile);
+		// return (new Response($line, 200))->send();
 	}
 
 	public function create() {
