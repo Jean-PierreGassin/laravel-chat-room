@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="csrf-token" content="{{ csrf_token() }}" />
 	<title>Chat Room</title>
 	<link rel="stylesheet" href="css/app.css"/>
 </head>
@@ -18,7 +19,6 @@
 
 			<form>
 			  <div class="row">
-				<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
 			    <div class="input-group">
 			        <textarea placeholder="Start chattin'..."></textarea>
 					<input type="submit" class="button" value="Send">

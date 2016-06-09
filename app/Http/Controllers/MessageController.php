@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Routing\Controller as BaseController;
 
@@ -22,7 +24,6 @@ class MessageController extends BaseController
 	}
 
 	public function create() {
-		$chatFile = fopen($this->chatFilePath, "w+");
 		// return (new Response(null, 404))->send();
 	}
 }
