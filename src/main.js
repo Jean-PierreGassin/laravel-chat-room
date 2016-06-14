@@ -1,9 +1,10 @@
 import $ from './js/jquery-3.0.0.min.js';
 import io from 'socket.io-client';
 import {User} from './js/user.js';
-import {userSocket} from './js/connectSockets.js';
+import {UserSocket} from './js/userSocket.js';
 
-let user = new UserSocket(new User().getUser());
+let user = new User();
+let userSocket = new UserSocket(user.name);
 let socket = io.connect('http://localhost:3000');
 
 // Re-focus the message box
@@ -16,17 +17,17 @@ $('form').submit(function(form) {
 	form.preventDefault();
 
 	let message = {
-		user: user,
+		user: user.name,
 		message: $('#message').val().trim()
 	};
 
-	user.sendMessage(message);
+	userSocket.sendMessage(message);
 	$('form').trigger('reset');
 });
 
 // Emit the users 'typing' event to the server
 $('form').on('keypress', function() {
-	user.showUserTyping();
+	userSocket.showUserTyping();
 });
 
 // Reset the typing div every second to show real-time actions
@@ -39,8 +40,8 @@ setInterval(function() {
 
 // When a user connects, join the room and emit the 'connect' event to the server
 socket.on('connect', function(msg) {
-	socket.emit('join', user);
-	socket.emit('user connected', user);
+	socket.emit('join', user.name);
+	socket.emit('user connected', user.name);
 });
 
 // When a user connects, emit the 'user connected', join the room
