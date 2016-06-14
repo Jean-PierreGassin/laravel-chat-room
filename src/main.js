@@ -48,7 +48,7 @@ socket.on('connect', function(msg) {
 // and add them to the online list
 socket.on('user connected', function(msg) {
 	$('#messages').append($('<li>').text(msg.connected));
-	$('html, body').animate({ scrollTop: $('#messages').height()}, 'slow');
+	$('html, body').animate({scrollTop: $('#messages').height()}, 'slow');
 	$('#online').empty();
 
 	msg.clients.forEach(function(client) {
@@ -64,7 +64,7 @@ socket.on('typing', function(msg) {
 // When a 'chat' event is received, update the clients chat box
 socket.on('chat message', function(msg) {
 	$('#messages').append($('<li>').text(msg.user + ': ' + msg.message));
-	$('html, body').animate({ scrollTop: $('#messages').height()}, 'slow');
+	$('html, body').animate({scrollTop: $('#messages').height()}, 'slow');
 });
 
 // When a 'disconnect' event is received append it to the clients message box
