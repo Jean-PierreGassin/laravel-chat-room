@@ -1,7 +1,6 @@
-import $ from './jquery-3.0.0.min.js';
 import io from 'socket.io-client';
 
-export class userSocket {
+export class UserSocket {
 	// Setup socket.io for websockets and construct our user
 	constructor(user) {
 		this.socket = io.connect('http://localhost:3000');
