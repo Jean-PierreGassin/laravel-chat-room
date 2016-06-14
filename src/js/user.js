@@ -10,9 +10,16 @@ export class User {
 
 	// Ask for the clients name
 	promptName() {
+		if (localStorage.user) {
+			this.user = localStorage.user;
+
+			return this.user;
+		}
+
 		if (!this.isFirefox) {
 			do {
 				this.user = prompt('What\'s your name?');
+				localStorage.user = this.user;
 			} while (this.user === null || this.user.length <= 1);
 		}
 
