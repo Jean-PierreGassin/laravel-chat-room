@@ -1,16 +1,10 @@
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var clients = [];
 
-
-app.get('/', function(req, res){
-	res.sendFile(__dirname + '/index.html');
-});
-
-app.get('/scripts', function(req, res){
-	res.sendFile(__dirname + '/jquery-3.0.0.min.js');
-});
+app.use(express.static('public'));
 
 io.on('connection', function(socket){
 	socket.on('join', function (name) {
@@ -45,7 +39,7 @@ io.on('connection', function(socket){
 		var message = {
 			user: socket.name,
 			clients: clients
-		}
+		};
 
 		io.emit('disconnect', message);
 	});
