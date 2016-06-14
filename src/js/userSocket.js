@@ -20,4 +20,8 @@ export class UserSocket {
 	showUserTyping() {
 		this.socket.emit('typing', this.user);
 	}
+
+	get userSocket() {
+		return this.socket;
+	}
 }

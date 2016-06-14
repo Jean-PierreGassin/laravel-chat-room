@@ -1,11 +1,11 @@
-import $ from './js/jquery-3.0.0.min.js';
+import $ from './js/jquery-3.0.0.min';
 import io from 'socket.io-client';
-import {User} from './js/user.js';
-import {UserSocket} from './js/userSocket.js';
+import {User} from './js/user';
+import {UserSocket} from './js/userSocket';
 
 let user = new User();
 let userSocket = new UserSocket(user.name);
-let socket = io.connect('http://localhost:3000');
+let socket = userSocket.userSocket;
 
 // Re-focus the message box
 $('html').on('click', function() {
