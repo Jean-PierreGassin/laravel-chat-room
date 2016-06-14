@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import {User} from './js/user.js';
 import {userSocket} from './js/connectSockets.js';
 
-let sockets = new UserSocket(new User().getUser());
+let user = new UserSocket(new User().getUser());
 let socket = io.connect('http://localhost:3000');
 
 // Re-focus the message box
@@ -20,13 +20,13 @@ $('form').submit(function(form) {
 		message: $('#message').val().trim()
 	};
 
-	sockets.sendMessage(message);
+	user.sendMessage(message);
 	$('form').trigger('reset');
 });
 
 // Emit the users 'typing' event to the server
 $('form').on('keypress', function() {
-	sockets.showUserTyping();
+	user.showUserTyping();
 });
 
 // Reset the typing div every second to show real-time actions
