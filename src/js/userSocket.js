@@ -21,7 +21,7 @@ export class UserSocket {
 		this.socket.emit('typing', this.user);
 	}
 
-	get userSocket() {
+	get theSocket() {
 		return this.socket;
 	}
 }

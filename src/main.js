@@ -5,7 +5,7 @@ import {UserSocket} from './js/userSocket';
 
 let user = new User();
 let userSocket = new UserSocket(user.name);
-let socket = userSocket.userSocket;
+let socket = userSocket.theSocket;
 
 // Re-focus the message box
 $('html').on('click', function() {
