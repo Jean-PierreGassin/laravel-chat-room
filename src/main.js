@@ -1,7 +1,7 @@
-import $ from './src/js/jquery-3.0.0.min';
+import $ from './js/jquery-3.0.0.min';
 import io from 'socket.io-client';
-import {User} from './src/js/user';
-import {UserSocket} from './src/js/userSocket';
+import {User} from './js/user';
+import {UserSocket} from './js/userSocket';
 
 let user = new User();
 let userSocket = new UserSocket(user.name);
