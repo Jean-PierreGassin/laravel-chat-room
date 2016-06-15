@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 export class UserSocket {
 	// Setup socket.io for websockets and construct our user
 	constructor(user) {
-		this.socket = io.connect('//localhost:3000', {secure: true});
+		this.socket = io.connect('//localhost:3000');
 		this.user = user;
 	}
 
