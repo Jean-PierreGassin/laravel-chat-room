@@ -1,5 +1,5 @@
 module.exports = {
-	entry: './src/main.js',
+	entry: './main.js',
 	output: {
 		path: './dist/assets',
 		filename: 'bundle.js'
@@ -8,11 +8,6 @@ module.exports = {
 		loaders: [{
 			test: /\.js$/,
 			loader: 'babel-loader',
-			resolveLoader: {
-				modulesDirectories: [
-						'./node_modules'
-				]
-			},
 			exclude: /node_modules/,
 			query: {
 				presets: ['es2015']
