@@ -3,7 +3,6 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http, {path: '/node/socket.io'});
 var messageLog = [];
-var messages = [];
 var clients = [];
 
 io.on('connection', function(socket) {
@@ -41,7 +40,7 @@ io.on('connection', function(socket) {
 		}
 
 		io.emit('chat message', msg);
-		messagesLog.push(
+		messageLog.push(
 			{
 				"name": socket.name,
 				"message": msg
