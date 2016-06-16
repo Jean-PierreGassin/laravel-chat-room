@@ -18,7 +18,7 @@ $('form').submit(function(form) {
 
 	let message = {
 		user: user.name,
-		message: ': ' + $('#message').val().trim()
+		message: $('#message').val().trim()
 	};
 
 	userSocket.sendMessage(message);
@@ -48,6 +48,7 @@ socket.on('connect', function(msg) {
 // and add them to the online list
 socket.on('user connected', function(msg) {
 	$('#messages').append($('<li>').text(msg.connected));
+	$('html, body').animate({scrollTop: $('#messages').height()});
 	$('#online').empty();
 
 	msg.clients.forEach(function(client) {
@@ -61,7 +62,7 @@ socket.on('message log', function(messages) {
 		$('#messages').append($('<li>').text(messageLog.user + messageLog.message));
 	});
 
-	$('html, body').animate({scrollTop: $('#messages').height()}, 'slow');
+	$('html, body').scrollTop($('#messages').height());
 });
 
 // When a 'typing' event is received from socket.io, let the client know
@@ -79,10 +80,9 @@ socket.on('chat message', function(msg) {
 socket.on('disconnect', function(msg) {
 	$('#online').empty();
 	$('#messages').append($('<li>').text(msg.user + ' has disconnected.'));
+	$('html, body').scrollTop($('#messages').height());
 
 	msg.clients.forEach(function(client) {
 		$('#online').append($('<li class="online">').text(client));
 	});
-
-	$('html, body').animate({scrollTop: $('#messages').height()}, 'slow');
 });

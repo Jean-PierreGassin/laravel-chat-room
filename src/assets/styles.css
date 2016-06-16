@@ -54,6 +54,7 @@ form button {
 
 #typing {
 	color: #000;
+	background: #ffffff;
 	padding: 3px;
 	position: fixed;
 	left: 15%;
@@ -67,7 +68,6 @@ form button {
 	position: fixed;
 	border-right: 1px solid #9FB4C7;
 	height: 100vh;
-	margin-right: 20px;
 	min-width: 15%;
 	background: #fff;
 	list-style-type: none;

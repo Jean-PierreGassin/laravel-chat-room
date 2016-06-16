@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 export class UserSocket {
 	// Setup socket.io for websockets and construct our user
 	constructor(user) {
-		this.socket = io.connect({path: '/node/socket.io'});
+		this.socket = io.connect('localhost:3000');
 		this.user = user;
 	}
 
@@ -12,6 +12,8 @@ export class UserSocket {
 		if (message.message.length < 1) {
 			return false;
 		}
+
+		message.message = ': ' + message.message;
 
 		this.socket.emit('chat message', message);
 	}
