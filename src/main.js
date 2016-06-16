@@ -48,7 +48,6 @@ socket.on('connect', function(msg) {
 // and add them to the online list
 socket.on('user connected', function(msg) {
 	$('#messages').append($('<li>').text(msg.connected));
-	$('html, body').animate({scrollTop: $('#messages').height()}, 'slow');
 	$('#online').empty();
 
 	msg.clients.forEach(function(client) {
