@@ -28,11 +28,10 @@ form input:focus {
 }
 
 form button {
-	width: 9%;
+	width: 8%;
 	background: #9FB4C7;
 	color: #fff;
 	border: none;
-	padding: 10px;
 }
 
 #messages {
@@ -68,10 +67,13 @@ form button {
 	position: fixed;
 	border-right: 1px solid #9FB4C7;
 	height: 100vh;
-	min-width: 15%;
+	width: 100%;
+	max-width: 15%;
 	background: #fff;
 	list-style-type: none;
 	overflow: scroll;
+	overflow-x: scroll;
+	white-space: nowrap;
 	padding-bottom: 50px;
 }
 
