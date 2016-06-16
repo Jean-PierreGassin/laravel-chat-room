@@ -7,15 +7,13 @@ var messages = [];
 var clients = [];
 
 io.on('connection', function(socket) {
+	if (messageLog.length > 20) {
+		messageLog.shift();
+	}
+
 	socket.on('join', function (name) {
 			socket.name = name;
 			clients.push(name);
-
-			messages.forEach(function(message) {
-				if (messages.length >= 20) {
-						messageLog.push(message);
-				}
-			});
 
 			io.emit('message log', messageLog);
 
@@ -38,12 +36,12 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('chat message', function(msg) {
-		if (messageLog.length >= 20) {
+		if (messageLog.length > 20) {
 			messageLog.shift();
 		}
 
 		io.emit('chat message', msg);
-		messages.push(
+		messagesLog.push(
 			{
 				"name": socket.name,
 				"message": msg
