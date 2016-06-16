@@ -56,6 +56,15 @@ socket.on('user connected', function(msg) {
 	});
 });
 
+// When a user connects, get a history of messages and append them to the chat
+socket.on('message log', function(messages) {
+	messages.forEach(function(message) {
+		$('#messages').append($('<li>').text(message.name + ': ' + message.message));
+	});
+
+	$('html, body').animate({scrollTop: $('#messages').height()}, 'slow');
+});
+
 // When a 'typing' event is received from socket.io, let the client know
 socket.on('typing', function(msg) {
 	$('#typing').text(msg);
