@@ -71,6 +71,8 @@ form button {
 	min-width: 15%;
 	background: #fff;
 	list-style-type: none;
+	overflow: scroll;
+	padding-bottom: 50px;
 }
 
 #online li {
