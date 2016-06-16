@@ -4,8 +4,6 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var clients = [];
 
-app.use(express.static('public'));
-
 io.on('connection', function(socket){
 	socket.on('join', function (name) {
 			socket.name = name;
