@@ -15,7 +15,6 @@ io.on('connection', function(socket) {
 			clients.push(name);
 
 			io.emit('message log', messageLog);
-
 			console.log(socket.name + ' joined the chat.');
 	});
 
@@ -27,7 +26,7 @@ io.on('connection', function(socket) {
 
 		var message = {
 			user: user,
-			message: 'has connected.'
+			message: ' has connected.'
 		};
 
 		io.emit('user connected', response);
@@ -59,11 +58,12 @@ io.on('connection', function(socket) {
 
 		var message = {
 			user: socket.name,
-			message: 'has connected.'
+			message: ' has connected.'
 		};
 
 		io.emit('disconnect', response);
 		messageLog.push(message);
+		console.log(socket.name + ' disconnected from the chat.');
 	});
 });
 

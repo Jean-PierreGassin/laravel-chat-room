@@ -18,7 +18,7 @@ $('form').submit(function(form) {
 
 	let message = {
 		user: user.name,
-		message: $('#message').val().trim()
+		message: ': ' + $('#message').val().trim()
 	};
 
 	userSocket.sendMessage(message);
@@ -59,7 +59,7 @@ socket.on('user connected', function(msg) {
 // When a user connects, get a history of messages and append them to the chat
 socket.on('message log', function(messages) {
 	messages.forEach(function(messageLog) {
-		$('#messages').append($('<li>').text(messageLog.user + ': ' + messageLog.message));
+		$('#messages').append($('<li>').text(messageLog.user + messageLog.message));
 	});
 
 	$('html, body').animate({scrollTop: $('#messages').height()}, 'slow');
