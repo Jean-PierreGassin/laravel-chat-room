@@ -47,6 +47,7 @@ socket.on('connect', function(msg) {
 // When a user connects, emit the 'user connected', join the room
 // and add them to the online list
 socket.on('user connected', function(msg) {
+	$('#messages').append($('<li>').text(msg.connected));
 	$('html, body').animate({scrollTop: $('#messages').height()}, 'slow');
 	$('#online').empty();
 
