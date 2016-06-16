@@ -89,6 +89,7 @@ form button {
 }
 
 #loading {
+	font-family: 'Yellowtail', cursive;
 	position: absolute;
 	width: 220px;
 	top: 40%;
