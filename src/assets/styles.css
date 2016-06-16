@@ -82,6 +82,17 @@ form button {
 	background: #eee;
 }
 
+#container {
+	visibility: hidden;
+}
+
+#loading {
+	position: absolute;
+	left: 45%;
+	top: 35%;
+	font-size: 3rem;
+}
+
 .online::before {
 	content: " ";
 	border-radius: 20px;

@@ -7,15 +7,25 @@
 	<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-	<ul id="online"></ul>
-	<ul id="messages"></ul>
-	<ul id="typing"></ul>
+	<div id="loading">Loading...</div>
 
-	<form>
-		<input id="message" autocomplete="off" autofocus>
-		<button>Send</button>
-	</form>
+	<div id="container">
+		<ul id="online"></ul>
+		<ul id="messages"></ul>
+		<ul id="typing"></ul>
+
+		<form>
+			<input id="message" autocomplete="off" autofocus>
+			<button>Send</button>
+		</form>
+	</div>
 
 	<script src="assets/bundle.js"></script>
+	<script>
+		window.onload = function() {
+			document.getElementById("loading").remove();
+			document.getElementById("container").style.visibility="visible";
+		}
+	</script>
 </body>
 </html>
