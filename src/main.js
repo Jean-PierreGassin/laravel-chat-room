@@ -79,6 +79,7 @@ socket.on('chat message', function(msg) {
 // When a 'disconnect' event is received append it to the clients message box
 socket.on('disconnect', function(msg) {
 	$('#online').empty();
+	$('#messages').append($('<li>').text(msg.user + msg.message));
 
 	msg.clients.forEach(function(client) {
 		$('#online').append($('<li class="online">').text(client));
