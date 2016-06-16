@@ -72,7 +72,7 @@ socket.on('typing', function(msg) {
 
 // When a 'chat' event is received, update the clients chat box
 socket.on('chat message', function(msg) {
-	$('#messages').append($('<li>').text(msg.user + ': ' + msg.message));
+	$('#messages').append($('<li>').text(msg.user + msg.message));
 	$('html, body').animate({scrollTop: $('#messages').height()}, 'slow');
 });
 
