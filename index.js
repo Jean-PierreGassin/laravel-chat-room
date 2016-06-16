@@ -58,7 +58,7 @@ io.on('connection', function(socket) {
 
 		var message = {
 			user: socket.name,
-			message: ' has connected.'
+			message: ' has disconnected.'
 		};
 
 		io.emit('disconnect', response);

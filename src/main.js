@@ -47,7 +47,6 @@ socket.on('connect', function(msg) {
 // When a user connects, emit the 'user connected', join the room
 // and add them to the online list
 socket.on('user connected', function(msg) {
-	$('#messages').append($('<li>').text(msg.connected));
 	$('html, body').animate({scrollTop: $('#messages').height()}, 'slow');
 	$('#online').empty();
 
@@ -78,7 +77,6 @@ socket.on('chat message', function(msg) {
 
 // When a 'disconnect' event is received append it to the clients message box
 socket.on('disconnect', function(msg) {
-	$('#messages').append($('<li>').text(msg.user + ' has disconnected.'));
 	$('#online').empty();
 
 	msg.clients.forEach(function(client) {
