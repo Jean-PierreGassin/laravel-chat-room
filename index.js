@@ -6,7 +6,7 @@ var messageLog = [];
 var clients = [];
 
 io.on('connection', function(socket) {
-	if (messageLog.length > 20) {
+	if (messageLog.length > 50) {
 		messageLog.shift();
 	}
 
@@ -20,12 +20,18 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('user connected', function(user) {
-		var message = {
+		var response = {
 			connected: user + ' has connected.',
 			clients: clients
 		};
 
-		io.emit('user connected', message);
+		var message = {
+			user: user,
+			message: 'has connected.'
+		};
+
+		io.emit('user connected', response);
+		messageLog.push(message);
 	});
 
 	socket.on('typing', function(user) {
@@ -35,7 +41,7 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('chat message', function(message) {
-		if (messageLog.length > 20) {
+		if (messageLog.length > 50) {
 			messageLog.shift();
 		}
 
@@ -46,12 +52,18 @@ io.on('connection', function(socket) {
 	socket.on('disconnect', function() {
 		clients.splice(clients.indexOf(socket.name), 1);
 
-		var message = {
+		var response = {
 			user: socket.name,
 			clients: clients
 		};
 
-		io.emit('disconnect', message);
+		var message = {
+			user: socket.name,
+			message: 'has connected.'
+		};
+
+		io.emit('disconnect', response);
+		messageLog.push(message);
 	});
 });
 
