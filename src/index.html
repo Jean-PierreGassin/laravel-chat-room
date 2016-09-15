@@ -2,31 +2,31 @@
 
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Chatroom</title>
-	<link rel="stylesheet" href="assets/styles.css">
-	<link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Chatroom</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
 </head>
 <body>
-	<div id="loading">Loading...</div>
+    <div id="loading">Loading...</div>
 
-	<div id="container">
-		<ul id="online"></ul>
-		<ul id="messages"></ul>
-		<ul id="typing"></ul>
+    <div id="container">
+        <ul id="online"></ul>
+        <ul id="messages"></ul>
+        <ul id="typing"></ul>
 
-		<form>
-			<input id="message" autocomplete="off" autofocus placeholder="Start typing...">
-			<button>Send</button>
-		</form>
-	</div>
+        <form>
+            <input id="message" autocomplete="off" autofocus placeholder="Start typing...">
+            <button>Send</button>
+        </form>
+    </div>
 
-	<script src="assets/bundle.js"></script>
-	<script>
-		window.onload = function() {
-			document.getElementById("loading").remove();
-			document.getElementById("container").style.visibility="visible";
-		}
-	</script>
+    <script src="assets/bundle.js"></script>
+    <script>
+    window.onload = function() {
+        document.getElementById("loading").remove();
+        document.getElementById("container").style.visibility="visible";
+    }
+    </script>
 </body>
 </html>
